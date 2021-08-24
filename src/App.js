@@ -16,7 +16,7 @@ export default function App() {
           <Link to="/">
             {' '}
             <ReactBootstrap.Navbar.Brand>
-              <img src={logo} width="200" height="40" ></img>Good Bank
+              <img src={logo} width="50" height="40"></img>Good Bank
             </ReactBootstrap.Navbar.Brand>{' '}
           </Link>
 
