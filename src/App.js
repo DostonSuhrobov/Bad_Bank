@@ -35,7 +35,7 @@ export default function App() {
 
             <Link to="/products">
               {' '}
-              <ReactBootstrap.Nav.Link href="#products">Products</ReactBootstrap.Nav.Link>{' '}
+              <ReactBootstrap.Nav.Link href="#products">Create Account</ReactBootstrap.Nav.Link>{' '}
             </Link>
           </ReactBootstrap.Nav>
         </ReactBootstrap.Container>
