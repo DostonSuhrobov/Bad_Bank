@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
 
-function Products() {
+function CreateAccount() {
   return (
     <div style={{margin:'auto',width:'400px'}}>
     <ReactBootstrap.Form>
@@ -36,4 +36,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default CreateAccount;

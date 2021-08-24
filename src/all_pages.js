@@ -1,7 +1,7 @@
 import React from 'react';
 
-function About() {
-  return <h1>this is About </h1>;
+function AllPages() {
+  return <h1>Here should be an information of the users. </h1>;
 }
 
-export default About;
+export default AllPages;
