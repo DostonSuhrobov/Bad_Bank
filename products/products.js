@@ -3,7 +3,7 @@ import * as ReactBootstrap from 'react-bootstrap';
 
 function Products() {
   return (
-    <div style={{margin:'auto',width:'60%'}}>
+    <div style={{margin:'auto',width:'400px'}}>
     <ReactBootstrap.Form>
       <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
         <ReactBootstrap.Form.Label>Name</ReactBootstrap.Form.Label>
