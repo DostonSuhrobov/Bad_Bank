@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './logo.svg'
 import { Route, Link, HashRouter } from 'react-router-dom';
 import * as ReactBootstrap from 'react-bootstrap';
 
@@ -15,7 +16,7 @@ export default function App() {
           <Link to="/">
             {' '}
             <ReactBootstrap.Navbar.Brand>
-              Good Bank
+              <img src={logo} width="200" height="40" ></img>Good Bank
             </ReactBootstrap.Navbar.Brand>{' '}
           </Link>
 
