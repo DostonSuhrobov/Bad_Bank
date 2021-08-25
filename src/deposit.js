@@ -1,26 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
 
-function Deposit() {
-  return (
-    <div style={{margin:'auto',width:'400px'}}>
-      <h1>Balanace: 13.22</h1>
-      <br/>
-    <ReactBootstrap.Form>
-      <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
-        <ReactBootstrap.Form.Label>Deposit Amount</ReactBootstrap.Form.Label>
-        <ReactBootstrap.Form.Control
-          type="number"
-          placeholder="Enter your name"
-        />
-      </ReactBootstrap.Form.Group>
+import { UserContext } from './createContext.js';
 
-     
-      <ReactBootstrap.Button variant="primary" type="submit">
-        Deposit
-      </ReactBootstrap.Button>
-    </ReactBootstrap.Form>
-</div>
+const { balance, setBalance } = useContext(UserContext);
+
+function calculate() {
+  var deposit_value = document.getElementById('deposit_field').value;
+}
+
+function Deposit() {
+  const { balance, setBalance } = useContext(UserContext);
+
+  return (
+    <div style={{ margin: 'auto', width: '400px' }}>
+      <h1>Balanace: {balance} </h1>
+      <br />
+      <ReactBootstrap.Form>
+        <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
+          <ReactBootstrap.Form.Label>Deposit Amount</ReactBootstrap.Form.Label>
+          <ReactBootstrap.Form.Control
+            id="deposit_field"
+            type="number"
+            placeholder="Enter your name"
+          />
+        </ReactBootstrap.Form.Group>
+
+        <ReactBootstrap.Button
+          variant="primary"
+          type="submit"
+          onClick={calculate}
+        >
+          Deposit
+        </ReactBootstrap.Button>
+      </ReactBootstrap.Form>
+    </div>
   );
 }
 

@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { UserContext } from './createContext.js';
 
 function AllPages() {
-  return <h1>Here should be an information of the users. </h1>;
+  // const { info, setInfo } = useContext(UserContext);
+
+  return (
+    <>
+      <h1>Here should be an information of the users. </h1>
+      <button onClick={() => setInfo('Customer')}> chnage Value</button>
+    </>
+  );
 }
 
 export default AllPages;
