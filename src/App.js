@@ -75,9 +75,9 @@ export default function App() {
         <Route path="/all_pages" component={All_pages} />
         <Route path="/create_account" component={CreateAccount} />
       </UserContext.Provider>
-      <UserContext.Provider value={[balance,setBalance]}>
-      <Route path="/withdraw" component={Withdraw} />
-      <Route path="/deposit" component={Deposit} />
+      <UserContext.Provider value={[balance, setBalance]}>
+        <Route path="/withdraw" component={Withdraw} />
+        <Route path="/deposit" component={Deposit} />
       </UserContext.Provider>
     </HashRouter>
   );

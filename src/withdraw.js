@@ -4,7 +4,8 @@ import * as ReactBootstrap from 'react-bootstrap';
 import { UserContext } from './createContext.js';
 
 function Withdraw() {
-  const { balance, setBalance } = useContext(UserContext);
+  const [balance, setBalance] = useContext(UserContext);
+  
 
   return (
     <div style={{ margin: 'auto', width: '400px' }}>
