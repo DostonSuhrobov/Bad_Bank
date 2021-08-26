@@ -13,7 +13,7 @@ import './style.css';
 
 export default function App() {
   const [info, setInfo] = useState(''); // this is for passing the information to the children
-  const [balance, setBalance] = useState('');
+  const [balance, setBalance] = useState(0);
 
 
 
@@ -75,7 +75,7 @@ export default function App() {
         <Route path="/all_pages" component={All_pages} />
         <Route path="/create_account" component={CreateAccount} />
       </UserContext.Provider>
-      <UserContext.Provider value={balance,setBalance}>
+      <UserContext.Provider value={[balance,setBalance]}>
       <Route path="/withdraw" component={Withdraw} />
       <Route path="/deposit" component={Deposit} />
       </UserContext.Provider>
