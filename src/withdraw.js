@@ -9,6 +9,7 @@ function Withdraw() {
 
   function calculate() {
     setBalance(balance - balance_1);
+    setBalance1(0);
 
   }
 
