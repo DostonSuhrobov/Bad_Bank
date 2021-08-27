@@ -9,7 +9,7 @@ function AllPages() {
   
 
   return (
-    <>
+    <div style={{ margin: 'auto', width: '400px' }}>
    <ReactBootstrap.Table striped bordered hover size="sm">
   <thead>
     <tr>
@@ -40,7 +40,7 @@ function AllPages() {
   </tbody>
 </ReactBootstrap.Table>
       
-    </>
+    </div>
   );
 }
 
