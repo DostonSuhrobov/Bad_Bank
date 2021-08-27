@@ -4,9 +4,9 @@ import * as ReactBootstrap from 'react-bootstrap';
 import { UserContext } from './createContext.js';
 
 function CreateAccount() {
-  const [name_tmp, setName_tmp] = React.useState('');
-  const [email_tmp, setEmail_tmp] = React.useState('');
-  const [password_tmp, setPassword_tmp] = React.useState('');
+  const [name_tmp, setName_tmp] = React.useState([]);
+  const [email_tmp, setEmail_tmp] = React.useState([]);
+  const [password_tmp, setPassword_tmp] = React.useState([]);
 
   const [info, setInfo] = React.useContext(UserContext);
 
@@ -14,9 +14,8 @@ function CreateAccount() {
   const clearForm = e => {
     e.preventDefault();
 
-    setInfo([...name_tmp + ' ' + email_tmp]);
+    setInfo([...name_tmp, ...email_tmp, ...password_tmp]);
 
-    console.log('info : ' + info + ' ' + typeof(info));
 
     console.log('name_tmp : ' + name_tmp + ' ' + typeof name_tmp);
     console.log('email_tmp : ' + email_tmp + ' ' +  typeof email_tmp);
