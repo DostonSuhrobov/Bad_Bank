@@ -1,31 +1,44 @@
 import React from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
 
+import { UserContext } from './createContext.js';
+
 function CreateAccount() {
-  const [name, setName] = React.useState();
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
-  var user_info = [];
+  const [name_tmp, setName_tmp] = React.useState('');
+  const [email_tmp, setEmail_tmp] = React.useState('');
+  const [password_tmp, setPassword_tmp] = React.useState('');
+
+  const [info, setInfo] = React.useContext(UserContext);
+
 
   const clearForm = e => {
     e.preventDefault();
 
-    setName('');
-    setEmail('');
-    setPassword('');
+    setInfo([...name_tmp + ' ' + email_tmp]);
+
+    console.log('info : ' + info + ' ' + typeof(info));
+
+    console.log('name_tmp : ' + name_tmp + ' ' + typeof name_tmp);
+    console.log('email_tmp : ' + email_tmp + ' ' +  typeof email_tmp);
+    console.log('password_tmp : ' + password_tmp + ' ' + typeof password_tmp);
+
+    setName_tmp('');
+    setEmail_tmp('');
+    setPassword_tmp('');
   };
+
 
   return (
     <div style={{ margin: 'auto', width: '400px' }}>
-      <h1>{user_info}</h1>
+      <h1> Name : {info} </h1>
       <ReactBootstrap.Form>
         <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
           <ReactBootstrap.Form.Label>Name </ReactBootstrap.Form.Label>
           <ReactBootstrap.Form.Control
             type="text"
             placeholder="Enter your name"
-            value={name}
-            onChange={e => setName(e.currentTarget.value)}
+            value={name_tmp}
+            onChange={e => setName_tmp(e.currentTarget.value)}
           />
         </ReactBootstrap.Form.Group>
 
@@ -34,8 +47,8 @@ function CreateAccount() {
           <ReactBootstrap.Form.Control
             type="email"
             placeholder="Enter email"
-            value={email}
-            onChange={e => setEmail(e.currentTarget.value)}
+            value={email_tmp}
+            onChange={e => setEmail_tmp(e.currentTarget.value)}
           />
           <ReactBootstrap.Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -50,8 +63,8 @@ function CreateAccount() {
           <ReactBootstrap.Form.Control
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.currentTarget.value)}
+            value={password_tmp}
+            onChange={e => setPassword_tmp(e.currentTarget.value)}
           />
         </ReactBootstrap.Form.Group>
         <ReactBootstrap.Form.Group

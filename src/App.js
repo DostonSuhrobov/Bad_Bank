@@ -69,7 +69,7 @@ export default function App() {
       </ReactBootstrap.Navbar>
 
       <br />
-      <UserContext.Provider value={{ info, setInfo }}>
+      <UserContext.Provider value={[ info, setInfo ]}>
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/all_pages" component={All_pages} />

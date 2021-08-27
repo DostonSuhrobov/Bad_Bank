@@ -7,12 +7,9 @@ function Deposit() {
   const [balance, setBalance] = useContext(UserContext);
   const [balance_1, setBalance1] = useState(0);
 
-  const Some_Context = React.createContext('Test 1');
-
   function calculate() {
     setBalance(balance + balance_1);
     setBalance1(0);
-
   }
 
   return (
