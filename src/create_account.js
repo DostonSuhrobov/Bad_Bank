@@ -11,12 +11,18 @@ function CreateAccount() {
   const [info, setInfo] = React.useContext(UserContext);
 
 
+
+
   const clearForm = e => {
     e.preventDefault();
+    
+    
 
-    setInfo([...name_tmp, ...email_tmp, ...password_tmp]);
+    setInfo([name_tmp,email_tmp, password_tmp]);
 
 
+
+    console.log('info : ' + info + ' ' + typeof info);
     console.log('name_tmp : ' + name_tmp + ' ' + typeof name_tmp);
     console.log('email_tmp : ' + email_tmp + ' ' +  typeof email_tmp);
     console.log('password_tmp : ' + password_tmp + ' ' + typeof password_tmp);
@@ -29,7 +35,7 @@ function CreateAccount() {
 
   return (
     <div style={{ margin: 'auto', width: '400px' }}>
-      <h1> Name : {info} </h1>
+    
       <ReactBootstrap.Form>
         <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
           <ReactBootstrap.Form.Label>Name </ReactBootstrap.Form.Label>
