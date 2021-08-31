@@ -4,9 +4,9 @@ import * as ReactBootstrap from 'react-bootstrap';
 import { UserContext } from './createContext.js';
 
 function CreateAccount() {
-  const [name_tmp, setName_tmp] = React.useState([]);
-  const [email_tmp, setEmail_tmp] = React.useState([]);
-  const [password_tmp, setPassword_tmp] = React.useState([]);
+  const [name_tmp, setName_tmp] = React.useState('');
+  const [email_tmp, setEmail_tmp] = React.useState('');
+  const [password_tmp, setPassword_tmp] = React.useState('');
 
   const [info, setInfo] = React.useContext(UserContext);
 
@@ -18,7 +18,7 @@ function CreateAccount() {
     
     
 
-    setInfo([name_tmp,email_tmp, password_tmp]);
+    setInfo([...info,name_tmp,email_tmp, password_tmp]);
 
 
 
