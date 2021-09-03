@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { UserContext } from './createContext.js';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const initialValues = {
     name: '',
@@ -64,6 +67,17 @@ function CreateAccount() {
 
     function thisOne(e) {
         e.preventDefault();
+
+        toast.success('Success!', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          });
+
         setInfo([...info,formik.values.name,formik.values.email, formik.values.password]);
         formik.values.name = '';
         formik.values.email = '';
@@ -133,6 +147,19 @@ function CreateAccount() {
           >
                 Submit
             </ReactBootstrap.Button>
+
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+                
         </ReactBootstrap.Form>
 
     </div>
