@@ -4,3 +4,10 @@ My MIT xPro Front-end application programming assignment.This project is able to
 
 ### Instalation
 For execution of the project you need to first `git clone` the project, after install from `package.json`  `npm install` 
+
+### Technologies used 
+- [x] React 
+- [x] Bootsrap
+- [x] Extra npm packages 
+- [ ] Express.js
+- [ ] MongoDB ( not yet integrated ) 
