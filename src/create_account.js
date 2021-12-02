@@ -9,6 +9,9 @@ import { UserContext } from './createContext.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+
+
 
 const initialValues = {
     name: '',
@@ -52,6 +55,45 @@ const initialValues = {
 
 function CreateAccount() {
 
+  // Registration part 
+
+  const [registerEmail, setRegisterEmail] = React.useState("");
+  const [registerPassword, setRegisterPassword] = React.useState("");
+
+  const auth = getAuth();
+  
+  const register = async () => {
+
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    toast.success('Success!', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+
+  setInfo([...info,formik.values.name,formik.values.email, formik.values.password]);
+  formik.values.name = '';
+  formik.values.email = '';
+  formik.values.password = '';
+  };
+
+
+  // Front end side
+
   const [info, setInfo] = React.useContext(UserContext);
 
 
@@ -62,27 +104,7 @@ function CreateAccount() {
         validate
     });
 
-    console.log('Form values : ', formik.values); // getting the values from fornik
-    console.log('Form Errors : ', formik.errors); // this one is for seeing the errrors
 
-    function thisOne(e) {
-        e.preventDefault();
-
-        toast.success('Success!', {
-            position: 'top-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-          });
-
-        setInfo([...info,formik.values.name,formik.values.email, formik.values.password]);
-        formik.values.name = '';
-        formik.values.email = '';
-        formik.values.password = '';
-    }
 
 
 
@@ -90,21 +112,7 @@ function CreateAccount() {
     <div style={{ margin: 'auto', width: '400px' }}>
 
         <ReactBootstrap.Form>
-        <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
-                
-                <ReactBootstrap.Form.Label>Email name</ReactBootstrap.Form.Label>
-                <ReactBootstrap.Form.Control
-                 type="text"
-                 name="name"
-                 placeholder="Enter name" 
-                 onChange={formik.handleChange} 
-                 value={formik.values.name}/>
 
-                 {formik.errors.name ? (
-                    <div style={{ color: 'red' }}> {formik.errors.name}</div>
-                    ) : null}
-
-            </ReactBootstrap.Form.Group>
 
             <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
                 
@@ -113,8 +121,13 @@ function CreateAccount() {
                 type="email" 
                 name="email"
                 placeholder="Enter email" 
-                onChange={formik.handleChange} 
-                value={formik.values.email} />
+                // onChange={formik.handleChange} 
+                onChange={(event) => {
+                  setRegisterEmail(event.target.value);
+                }}
+                 />
+
+
 
                 {formik.errors.email ? (
                     <div style={{ color: 'red' }}> {formik.errors.email}</div>
@@ -129,8 +142,11 @@ function CreateAccount() {
                 type="password" 
                 name="password"
                 placeholder="Password" 
-                onChange={formik.handleChange} 
-                value={formik.values.password} />
+                onChange={(event) => {
+                  setRegisterPassword(event.target.value);
+                }}
+
+                />
 
                 {formik.errors.password ? (
                     <div style={{ color: 'red' }}> {formik.errors.password}</div>
@@ -140,12 +156,10 @@ function CreateAccount() {
             </ReactBootstrap.Form.Group>
 
 
-            <ReactBootstrap.Button variant="primary" type="submit" disabled={
-            (!formik.values.name, !formik.values.email, !formik.values.password)
-          }
-            onClick={thisOne}
+            <ReactBootstrap.Button variant="primary" type="submit" 
+            onClick={register}
           >
-                Submit
+                Signup
             </ReactBootstrap.Button>
 
             <ToastContainer
