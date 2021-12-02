@@ -57,12 +57,6 @@ function Login() {
   const [info, setInfo] = React.useContext(UserContext);
 
 
-
-
-
-
-
-
   return (
     <div style={{ margin: 'auto', width: '400px' }}>
 
