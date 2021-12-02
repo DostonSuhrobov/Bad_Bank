@@ -8,6 +8,7 @@ import Home from './home.js';
 import Withdraw from './withdraw.js';
 import CreateAccount from './create_account.js';
 import Deposit from './deposit.js';
+import Login from './login.js';
 import { UserContext } from './createContext.js';
 import './style.css';
 
@@ -62,6 +63,7 @@ export default function App() {
               Good Bank
             </ReactBootstrap.Navbar.Brand>{' '}
           </Link>
+          
 
           <ReactBootstrap.Nav className="me-auto">
             <Link to="/home">
@@ -78,13 +80,6 @@ export default function App() {
               </ReactBootstrap.Nav.Link>{' '}
             </Link>
 
-            <Link to="/create_account">
-              {' '}
-              <ReactBootstrap.Nav.Link href="#create_account">
-                Create Account
-              </ReactBootstrap.Nav.Link>{' '}
-            </Link>
-
             <Link to="/withdraw">
               {' '}
               <ReactBootstrap.Nav.Link href="#withdraw">
@@ -98,9 +93,28 @@ export default function App() {
                 Deposit
               </ReactBootstrap.Nav.Link>{' '}
             </Link>
+
+            <Link to="/create_account">
+              {' '}
+              <ReactBootstrap.Nav.Link href="#create_account">
+                Create Account
+              </ReactBootstrap.Nav.Link>{' '}
+            </Link>
+
+            <Link to="/login">
+              {' '}
+              <ReactBootstrap.Nav.Link href="#create_account">
+                Login
+              </ReactBootstrap.Nav.Link>{' '}
+            </Link>
+
+            {user ? <p style={{color: 'white', marginLeft:'150px'}}> Hello {user.email} </p> : <p style={{color: 'white'}}> No User</p>}
+  
           </ReactBootstrap.Nav>
         </ReactBootstrap.Container>
+
       </ReactBootstrap.Navbar>
+
 
       <br />
       <UserContext.Provider value={[ info, setInfo ]}>
@@ -108,6 +122,7 @@ export default function App() {
         <Route path="/home" exact component={Home} />
         <Route path="/all_pages" component={All_pages} />
         <Route path="/create_account" component={CreateAccount} />
+        <Route path="/login" component={Login} />
       </UserContext.Provider>
       <UserContext.Provider value={[balance, setBalance]}>
         <Route path="/withdraw" component={Withdraw} />
