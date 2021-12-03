@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
-import { useFormik } from 'formik';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { UserContext } from './createContext.js';
@@ -8,7 +8,7 @@ import { UserContext } from './createContext.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
   
 
@@ -52,16 +52,12 @@ function Login() {
     await signOut(auth);
   };
 
-
-  
   const [info, setInfo] = React.useContext(UserContext);
-
 
   return (
     <div style={{ margin: 'auto', width: '400px' }}>
 
         <ReactBootstrap.Form>
-
 
             <ReactBootstrap.Form.Group className="mb-3" controlId="formBasicEmail">
                 
@@ -74,9 +70,6 @@ function Login() {
                     setLoginEmail(event.target.value);
                   }}
                  />
-
-
-   
 
             </ReactBootstrap.Form.Group>
 
@@ -93,16 +86,21 @@ function Login() {
 
                 />
 
-
-
             </ReactBootstrap.Form.Group>
 
 
-            <ReactBootstrap.Button variant="primary" type="submit" 
+            <ReactBootstrap.Button variant="primary"  
             onClick={login}
           >
                 Login
             </ReactBootstrap.Button>
+
+            <ReactBootstrap.Button variant="secodary"  
+            onClick={logout} style={{color:'white' ,backgroundColor:'444a5c',  marginLeft:'10px'}}
+          >
+                Logout
+            </ReactBootstrap.Button>
+
 
             <ToastContainer
                 position="top-center"

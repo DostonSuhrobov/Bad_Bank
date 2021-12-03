@@ -108,7 +108,7 @@ export default function App() {
               </ReactBootstrap.Nav.Link>{' '}
             </Link>
 
-            {user ? <p style={{color: 'white', marginLeft:'150px'}}> Hello {user.email} </p> : <p style={{color: 'white'}}> No User</p>}
+            {user ? <p style={{color: 'white', marginLeft:'150px'}}> Hello {user.email} </p> : <p style={{color: 'white', marginLeft:'150px'}}> No User</p>}
   
           </ReactBootstrap.Nav>
         </ReactBootstrap.Container>
