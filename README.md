@@ -9,6 +9,7 @@ For execution of the project you need to first `git clone` the project, after in
 - [x] React 
 - [x] Bootsrap
 - [x] Extra npm packages 
+- [x] firebase authentification
 - [ ] Express.js ( not yet integrated )
 - [ ] MongoDB ( not yet integrated ) 
 
