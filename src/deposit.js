@@ -44,7 +44,6 @@ function Deposit() {
   }
 
   
-
   const db = getDatabase();
   const balanceRef = ref(db, 'balance/balance');
   onValue(balanceRef, (snapshot) => {        
